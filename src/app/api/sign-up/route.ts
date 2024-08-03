@@ -10,12 +10,12 @@ export async function POST(req: Request) {
 
     try {
         const {username, email, password} = await req.json();
-        const existingVerifieUserByUsername = await UserModel.findOne({
+        const existingVerifiedUserByUsername = await UserModel.findOne({
             username,
             isVerified: true
         });
 
-        if(existingVerifieUserByUsername) {
+        if(existingVerifiedUserByUsername) {
             return NextResponse.json({
                 success: false,
                 messages: "username is already taken"
@@ -47,20 +47,37 @@ export async function POST(req: Request) {
                 await existingUserByEmail.save();
             }
         } else {
+            const checkUser = await UserModel.findOne({
+                username 
+            });
             const hashedpassword = await bcrypt.hash(password, 10);
             const expiryDate = new Date();
             expiryDate.setHours(expiryDate.getHours() + 1);
-            const newUser = new UserModel({
-                username: username,
-                email: email,
-                password: hashedpassword,
-                verifyCode,
-                verifyCodeExpiry: expiryDate,
-                isVerified: false,
-                isAcceptingMessages: true,
-                messages: []
-            })
-            await newUser.save();
+            if(checkUser) {
+                const user = await UserModel.updateOne({
+                    username: username
+                }, {
+                    email: email,
+                    password: hashedpassword,
+                    verifyCode,
+                    verifyCodeExpiry: expiryDate,
+                    isVerified: false,
+                    isAcceptingMessages: true,
+                    messages: []
+                })
+            } else {
+                const newUser = new UserModel({
+                    username: username,
+                    email: email,
+                    password: hashedpassword,
+                    verifyCode,
+                    verifyCodeExpiry: expiryDate,
+                    isVerified: false,
+                    isAcceptingMessages: true,
+                    messages: []
+                })
+                await newUser.save();
+            }
         }
         const emailResponse = await sendVerificationEmail(
             email,
