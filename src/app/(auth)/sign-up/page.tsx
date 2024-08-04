@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 
-const SignInPage = () => {
+const SignUpPage = () => {
   const [username, setUsername] = useState('');
   const [usernameChecking, setUsernameChecking] = useState(false);
   const [usernameMessage, setUsernameMessage] = useState('');
@@ -159,4 +159,4 @@ const SignInPage = () => {
     </div>
   )
 }
-export default SignInPage;
+export default SignUpPage;
