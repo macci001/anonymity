@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     await dbConnect();
-
+    console.log("here");
     try {
         const {username, email, password} = await req.json();
         const existingVerifiedUserByUsername = await UserModel.findOne({
