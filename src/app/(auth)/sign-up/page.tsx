@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 
 const SignUpPage = () => {
   const [username, setUsername] = useState('');
@@ -155,6 +156,11 @@ const SignUpPage = () => {
               <Button type="submit" disabled={isSubmitting}>Submit</Button>
             </form>
         </Form>
+        <div className="text-sm text-muted-foreground">
+          Already have an account <Link href="/sign-in" className="underline text-blue-700">
+            sign-in
+          </Link>
+        </div>
       </div>
     </div>
   )

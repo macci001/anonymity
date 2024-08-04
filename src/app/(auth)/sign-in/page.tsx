@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { signInSchema } from "@/schemas/signInSchema";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 
 const SignInPage = () => {
   const {toast} = useToast();
@@ -98,6 +99,11 @@ const SignInPage = () => {
               <Button type="submit" disabled={isSubmitting}>Submit</Button>
             </form>
         </Form>
+        <div className="text-sm text-muted-foreground">
+          Do not have an account <Link href="/sign-up" className="underline text-blue-700">
+            sign-up
+          </Link>
+        </div>
       </div>
     </div>
   )
