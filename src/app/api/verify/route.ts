@@ -70,14 +70,14 @@ export async function POST(req: Request) {
                 success: false,
                 message: "verify code is expired"
             }, {
-                status: 200
+                status: 403
             })
         } else {
             return NextResponse.json({
                 success: false,
                 message: "verify code is incorrect"
             }, {
-                status: 200
+                status: 403
             })
         }
     } catch (e) {

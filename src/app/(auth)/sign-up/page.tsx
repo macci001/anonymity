@@ -2,9 +2,9 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form } from "@/components/ui/form"
 import * as z from "zod";
-import {useDebounceValue} from "usehooks-ts";
+import {useDebounceCallback} from "usehooks-ts";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { signUpSchema } from "@/schemas/signUpSchema";
 import { useToast } from "@/components/ui/use-toast";
 import { ApiResponse } from "@/types/ApiResponse";
@@ -24,7 +24,7 @@ const SignInPage = () => {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
-  const [debouncedUsername] = useDebounceValue(username, 500);
+  const debounced = useDebounceCallback(setUsername, 500);
   
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -50,9 +50,10 @@ const SignInPage = () => {
         })
         router.replace(`/verify/${username}`);
     } catch(e) {
+      const axiosError = e as AxiosError<ApiResponse>;
         toast({
             title: "Signup failed",
-            description: "Some error occured in sign-up",
+            description: axiosError.response?.data.message ?? "Some error occured in sign-up",
             variant: "destructive"
         })
     } finally {
@@ -62,14 +63,14 @@ const SignInPage = () => {
 
   useEffect(() => {
     const checkUsername = async () => {
-      if(debouncedUsername.length == 0){
+      if(username.length == 0){
         setUsernameMessage('');
         return;
       }
       try {
         setUsernameChecking(true);
         setUsernameMessage('');
-        const response = await axios.get(`/api/check-username-unique?username=${debouncedUsername}`);
+        const response = await axios.get(`/api/check-username-unique?username=${username}`);
         setUsernameMessage(response.data.message);
       } catch (e) {
         setUsernameMessage('Error in getting the username');
@@ -78,7 +79,7 @@ const SignInPage = () => {
       } 
     }
     checkUsername();
-  }, [debouncedUsername]);
+  }, [username]);
 
   useEffect(() => {
     setMounted(true);
@@ -106,7 +107,7 @@ const SignInPage = () => {
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="username" {...field} onChange={(e) => {field.onChange(e); setUsername(e.target.value)}} />
+                      <Input placeholder="username" {...field} onChange={(e) => {field.onChange(e); debounced(e.target.value)}} />
                     </FormControl>
                     <FormDescription>
                       {
