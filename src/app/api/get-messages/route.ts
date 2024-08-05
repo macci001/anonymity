@@ -17,20 +17,19 @@ export async function GET() {
             status: 401
         })
     }
-
+    
     const userId = new mongoose.Types.ObjectId(_userId);
     try {
-        const user = await UserModel.aggregate(
-            [
-                {$match: {_id: userId}},
-                {$unwind: '$messages'},
-                {$sort: {'$messages.createdAt': -1}},
-                {$group: {_id: '$_id', messages: {$push: '$messages'}}}
-            ]
-        ).exec();
+        const user = await UserModel.aggregate([
+            { $match: { _id: userId } },
+            { $unwind: '$messages' },
+            { $sort: { 'messages.createdAt': -1 } },
+            { $group: { _id: '$_id', messages: { $push: '$messages' } } },
+          ]).exec();
+        console.log(user)
         if(!user || user.length === 0) {
             return NextResponse.json({
-                message: "No user found",
+                message: "No messages found",
                 success: false
             }, {
                 status: 404
