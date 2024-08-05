@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
                         ]
                     });
                     if(!user) {
-                        throw new Error("No user found with this email.");
+                        throw new Error("Given username/email does not exist.");
                     }
                     if(!user.isVerified) {
                         throw new Error("user is not verified, please verify");

@@ -18,7 +18,7 @@ export async function POST(req: Request) {
         if(existingVerifiedUserByUsername) {
             return NextResponse.json({
                 success: false,
-                messages: "username is already taken"
+                message: "username is already taken"
             }, {
                 status: 400
             })
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
             if(existingUserByEmail.isVerified) {
                 return NextResponse.json({
                     success: false,
-                    messages: "user already exists with this email."
+                    message: "An account already exists with this email."
                 }, {
                     status: 400
                 });

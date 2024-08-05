@@ -21,6 +21,7 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
 import { useToast } from "@/components/ui/use-toast";
+import { Textarea } from "@/components/ui/textarea";
 
 const MessagePage = () => {
     const {username} = useParams();
@@ -69,7 +70,7 @@ const MessagePage = () => {
                   <FormItem>
                     <FormLabel>Content</FormLabel>
                     <FormControl>
-                      <Input placeholder="Type the message which would like to send..." {...field} className="w-[70vw] h-[20vh]" />
+                      <Textarea placeholder="Type the message which would like to send..." {...field} className="w-[70vw] h-[20vh]"/>  
                     </FormControl>
                     <FormDescription>
                         Don&apos;t worry, with anonymity your messages are anonymous.

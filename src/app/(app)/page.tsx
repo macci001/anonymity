@@ -25,10 +25,9 @@ export default function Home() {
           {messages.map((message, index) => (
             <CarouselItem key={index}>
               <div>
-                <Card className="p-4">
-                  <CardTitle className="font-normal text-lg flex items-center justify-center">{message.title}</CardTitle>
-                  <CardContent className="flex items-center justify-center p-6">
-                    <span className="text-4xl font-semibold">{message.content}</span>
+                <Card className="p-4 w-full h-full">
+                  <CardContent className="flex items-center justify-start p-6 break-words">
+                    <span className="text-[4vw] font-semibold break-words">{message.content}</span>
                   </CardContent>
                   <CardFooter className="pl-0 pt-4 text-muted-foreground flex justify-end">
                     {message.received}

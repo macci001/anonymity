@@ -35,11 +35,10 @@ const SignInPage = () => {
       password: data.password
     })
     setIsSubmitting(false);
-    
     if(response?.error) {
       toast({
-        title: "Error",
-        description: "Error in signing in."
+        description: response.error,
+        variant: "destructive"
       })
       return;
     }
@@ -62,7 +61,7 @@ const SignInPage = () => {
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
           <h1 className="text-2xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Signin Anonymity
+            sign-in Anonymity
           </h1>
           <p className="mb-4">Signin for anonymous adventure</p>
         </div>

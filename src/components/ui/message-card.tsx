@@ -50,7 +50,7 @@ export const MessageCard = ({
     return (
         <Card className="card-bordered relative">
           <CardHeader>
-            <CardTitle>{message.content}</CardTitle>
+            <CardTitle className="break-words">{message.content}</CardTitle>
             <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button variant="destructive" className="absolute top-2 right-2">
