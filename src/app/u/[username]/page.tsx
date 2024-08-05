@@ -72,7 +72,7 @@ const MessagePage = () => {
                       <Input placeholder="Type the message which would like to send..." {...field} className="w-[70vw] h-[20vh]" />
                     </FormControl>
                     <FormDescription>
-                        Don't worry, with anonymity your messages are anonymous.
+                        Don&apos;t worry, with anonymity your messages are anonymous.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
