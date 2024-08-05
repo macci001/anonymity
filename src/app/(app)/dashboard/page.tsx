@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCard } from "@/components/ui/message-card";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
+import { useWindow } from "@/hooks/use-window";
 import { Message, User } from "@/model/user";
 import { acceptingMessageSchema } from "@/schemas/acceptingMessageSchema";
 import { ApiResponse } from "@/types/ApiResponse";
@@ -25,7 +26,9 @@ const DashboardPage = () => {
     const {data: session} = useSession();
     const username = session?.user.username;  
 
-    const baseUrl = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
+    const window = useWindow();
+
+    const baseUrl = `${window?.location.protocol}//${window?.location.hostname}:${window?.location.port}`;
     const profileUrl = `${baseUrl}/u/${username}`;
 
     const copyToClipboard = () => {
