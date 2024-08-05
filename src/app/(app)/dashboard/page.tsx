@@ -78,6 +78,7 @@ const DashboardPage = () => {
             }
         } catch (e) {
             const axiosError = e as AxiosError<ApiResponse>;
+            setMessages([]);
             toast({
                 title: "Error in getting messages",
                 description: axiosError.response?.data.message ?? "Something went wrong",
@@ -107,6 +108,10 @@ const DashboardPage = () => {
         }
     }, [setIsLoading, setValue, toast])
 
+    const handleDeleteMessage = (messageId: string) => {
+        setMessages(messages.filter((message) => message._id !== messageId));
+    };
+
     useEffect(() => {
         if (!session || !session.user) return;
     
@@ -114,9 +119,6 @@ const DashboardPage = () => {
         fetchIsAcceptingMessage();
     }, [session, setValue, toast, fetchIsAcceptingMessage, fetchMessages]);
 
-    const handleDeleteMessage = (messageId: string) => {
-        setMessages(messages.filter((message) => message._id !== messageId));
-    };
     
 
     return (<div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">

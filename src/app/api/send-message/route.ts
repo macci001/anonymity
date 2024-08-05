@@ -37,6 +37,15 @@ export async function POST(req: Request) {
             })
         }
 
+        if(!user.isAcceptingMessages) {
+            return NextResponse.json({
+                success: false,
+                message: "User is not accepting the message"
+            }, {
+                status: 403
+            })
+        }
+
         const message = {content, createdAt: new Date()};
         user.messages.push(message as Message);
         await user.save();

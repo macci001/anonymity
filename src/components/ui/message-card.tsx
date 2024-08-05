@@ -48,12 +48,12 @@ export const MessageCard = ({
     }
 
     return (
-        <Card className="card-bordered">
+        <Card className="card-bordered relative">
           <CardHeader>
-            <CardTitle>Create project</CardTitle>
+            <CardTitle>{message.content}</CardTitle>
             <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant="destructive">
+                <Button variant="destructive" className="absolute top-2 right-2">
                     <X className="h-4 w-4"/>
                 </Button>
               </AlertDialogTrigger>
