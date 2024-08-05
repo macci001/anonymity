@@ -1,9 +1,12 @@
 import Navbar from "@/components/ui/navbar"
 
-const layout = ({children} : {children: React.ReactNode}) => {
-    return (<>
-        <Navbar />
-        {children}
-    </>)
+const Layout = ({children}: {children: React.ReactNode}) => {
+    return (
+        <>
+            <Navbar/>
+            {children}
+        </>
+    )
 }
-export default layout;
+
+export default Layout;

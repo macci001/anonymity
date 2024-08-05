@@ -26,7 +26,6 @@ export async function GET() {
             { $sort: { 'messages.createdAt': -1 } },
             { $group: { _id: '$_id', messages: { $push: '$messages' } } },
           ]).exec();
-        console.log(user)
         if(!user || user.length === 0) {
             return NextResponse.json({
                 message: "No messages found",
