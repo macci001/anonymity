@@ -34,7 +34,7 @@ import {
         <Preview>Here&apos;s your verification code: {otp}</Preview>
         <Section>
           <Row>
-            <Heading as="h2">Hello {username},</Heading>
+            <Heading>Hello {username},</Heading>
           </Row>
           <Row>
             <Text>

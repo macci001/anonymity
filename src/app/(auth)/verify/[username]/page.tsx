@@ -54,21 +54,19 @@ const VerifyPage = () => {
         }
     } 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-800">
-            <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+        <div className="flex justify-center items-center min-h-screen">
+            <div className="w-full max-w-md p-8 space-y-8 rounded-lg shadow-md shadow-foreground/10 border border-2-foreground">
             <div className="text-center">
-                <h1 className="text-2xl font-extrabold tracking-tight lg:text-5xl mb-2">
-                  Join SecretFeedback
+                <h1 className="text-sm text-muted-foreground font-light py-2">
+                  Please enter the verification code.
                 </h1>
-                <p className="mb-4 text-muted-foreground text-sm">Please enter the verification code</p>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 w-full">
                     <FormField
                         control={form.control}
                         name="code"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Verify Code</FormLabel>
                             <FormControl>
                             <Input placeholder="code" {...field} />
                             </FormControl>
@@ -76,7 +74,7 @@ const VerifyPage = () => {
                         </FormItem>
                         )}
                     />
-                    <Button type="submit" disabled={isSubmitting}>Submit</Button>
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>Submit</Button>
                     </form>
                 </Form>
             </div>

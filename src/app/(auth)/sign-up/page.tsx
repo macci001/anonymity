@@ -92,12 +92,15 @@ const SignUpPage = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-800">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="w-full max-w-md p-8 space-y-8 rounded-lg shadow-md shadow-foreground/10 border border-2-foreground">
         <div className="text-center">
-          <h1 className="text-2xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Join SecretFeedback tribe!
-          </h1>
+          <span className="text-xl tracking-tight mb-6">
+            Join the <span className="font-bold">SecretFeedback</span> tribe!
+          </span>
+          <div className="text-sm text-muted-foreground font-light">
+            Please enter the details below to sign-up.
+          </div>
         </div>
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
