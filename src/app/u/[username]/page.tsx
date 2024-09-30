@@ -73,7 +73,7 @@ const MessagePage = () => {
                       <Textarea placeholder="Type the message which would like to send..." {...field} className="w-[70vw] h-[20vh]"/>  
                     </FormControl>
                     <FormDescription>
-                        Don&apos;t worry, with anonymity your messages are anonymous.
+                        Don&apos;t worry, with SecretFeedback your messages are secret.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -84,7 +84,7 @@ const MessagePage = () => {
         </Form>
         <div className="flex flex-col items-center">
             <div className="text-lg font-bold">Join Anonimity today</div>
-            <div className="text-muted-foreground">Feedback is truthful only when it is anonymous!!</div>
+            <div className="text-muted-foreground">Feedback is truthful only when it is kept secret!!</div>
             <Button className="text-2xl p-8 mt-6">
                 Create Account
             </Button>

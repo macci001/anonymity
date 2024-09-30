@@ -15,8 +15,8 @@ import messages from "@/messages.json";
 export default function Home() {
   return (
     <main className="flex flex-col items-center w-full p-8">
-      <div className="text-4xl font-bold p-2">Anonymity</div>
-      <div className="text-2xl p-2 text-muted-foreground">Explore the power of the anonymous feedback</div>
+      <div className="text-4xl font-bold p-2">SecretFeedback</div>
+      <div className="text-2xl p-2 text-muted-foreground">Explore the power of the secret feedback</div>
       <Carousel 
         className="w-[50vw] mt-20"
         plugins={[Autoplay({ delay: 2000 })]}

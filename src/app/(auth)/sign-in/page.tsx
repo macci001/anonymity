@@ -61,9 +61,8 @@ const SignInPage = () => {
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
           <h1 className="text-2xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            sign-in Anonymity
+            Sign-in SecretFeedback
           </h1>
-          <p className="mb-4">Signin for anonymous adventure</p>
         </div>
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

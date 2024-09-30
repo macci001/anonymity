@@ -11,7 +11,7 @@ const Navbar = () => {
     return (
         <div className="flex p-4 items-center justify-between border-b">
             <div className="text-xl font-semibold">
-                Anonymity
+                SecretFeedback
             </div>
             <div className="flex">
                 <div className="px-4">

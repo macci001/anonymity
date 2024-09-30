@@ -58,7 +58,7 @@ const VerifyPage = () => {
             <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
             <div className="text-center">
                 <h1 className="text-2xl font-extrabold tracking-tight lg:text-5xl mb-2">
-                  Join Anonymity
+                  Join SecretFeedback
                 </h1>
                 <p className="mb-4 text-muted-foreground text-sm">Please enter the verification code</p>
                 <Form {...form}>
