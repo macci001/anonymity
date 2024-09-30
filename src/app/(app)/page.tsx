@@ -93,7 +93,7 @@ cool.";
               <Scale className="h-4 w-4 mr-2"/>
               Prevents Bias
             </div>
-            <div className="text-sm text-muted-foreground">Secret feedback ensures that personal biases and preferences don't influence the feedback provided.</div>
+            <div className="text-sm text-muted-foreground">Secret feedback ensures that personal biases and preferences don&apos;t influence the feedback provided.</div>
           </div>
           <div className="col-span-6 sm:col-span-3 md:col-span-2 border border-1 border-foreground/20 rounded-md w-full p-4 shadow-sm shadow-foreground/10">
             <div className="text-md my-2 flex items-center">
