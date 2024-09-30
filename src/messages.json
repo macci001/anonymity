@@ -1,32 +1,52 @@
 [
-    {
-      "title": "Message from User123",
-      "content": "Your collaborative spirit and willingness to share knowledge have been invaluable to the team. You consistently bring fresh perspectives to discussions, and your problem-solving approach fosters a positive and productive working environment. Keep up the great work!",
-      "received": "10 minutes ago"
-    },
-    {
-      "title": "Message from SecretAdmirer",
-      "content": "I really appreciate how you managed to deliver the project ahead of the deadline while maintaining high-quality work. Your time management and commitment to meeting goals have made a significant difference to the team's success.",
-      "received": "2 hours ago"
-    },
-    {
-      "title": "Message from MysteryGuest",
-      "content": "Your ability to think outside the box has been truly impressive. The initiative you took to propose new solutions and implement improvements has not only streamlined processes but also inspired the rest of the team to think creatively.",
-      "received": "1 day ago"
-    },
-    {
-      "title": "Message from MysteryGuest",
-      "content": "Your ability to think outside the box has been truly impressive. The initiative you took to propose new solutions and implement improvements has not only streamlined processes but also inspired the rest of the team to think creatively.",
-      "received": "3 day ago"
-    },
-    {
-      "title": "Message from MysteryGuest",
-      "content": "Your dedication to providing exceptional customer service is remarkable. Clients have repeatedly mentioned how patient and attentive you are, making them feel valued and heard. Your work is a testament to our commitment to quality.",
-      "received": "1 hour ago"
-    },
-    {
-      "title": "Message from MysteryGuest",
-      "content": "You have been a phenomenal leader, always supporting and motivating the team through challenges. Your clear communication and ability to lead by example have created a positive and inspiring work culture. Your leadership truly shines!",
-      "received": "2 minutes ago"
-    }
+  {
+    "title": "Message from User123",
+    "content": "Great work on the project! Your attention to detail was impressive, and you ensured that everything was delivered on time and within the scope of the requirements. The quality of your output consistently exceeded expectations, and your professionalism made a big impact.",
+    "received": "10 minutes ago"
+  },
+  {
+    "title": "Message from SecretAdmirer",
+    "content": "The design was very creative, showing both innovation and practicality. The user interface was intuitive, making it easy to navigate. Your efforts clearly reflected a strong understanding of both user experience and design principles. Keep up this great level of work!",
+    "received": "2 hours ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "Your coding skills were showcased brilliantly in this project. The optimization techniques you implemented led to a significant improvement in the application's performance. Your ability to write clean, maintainable code truly stood out. It's great to see such dedication.",
+    "received": "1 day ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "You did an excellent job handling the project requirements, showing great adaptability and a willingness to make revisions based on feedback. Your collaborative nature really shone through, and it made the process smoother for everyone involved. Fantastic effort overall!",
+    "received": "3 days ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "The way you structured the database was both efficient and thoughtful, ensuring that queries were optimized for speed and scalability. This not only improved data management but also enhanced the overall application performance. Your approach to database design was exemplary.",
+    "received": "1 hour ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "The functionality you delivered was flawless, and your thorough testing ensured that no major issues made it into production. Your attention to detail in this regard helped minimize risks and ensured a smooth deployment. Fantastic job at delivering quality work under pressure.",
+    "received": "2 minutes ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "Your documentation was clear, concise, and incredibly helpful for the entire team. It allowed everyone to understand your implementation quickly, which saved time and prevented confusion. It's clear that you put significant effort into maintaining high-quality documentation.",
+    "received": "1 day ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "Your debugging skills were highly valuable during this project. The way you identified and resolved issues was precise and efficient. Your proactive approach saved the team a lot of time and ensured the stability of the project. Excellent problem-solving skills throughout.",
+    "received": "3 days ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "Your management of the project timelines was highly commendable. You maintained an exceptional level of quality while still adhering to the tight deadlines. This ability to balance speed with attention to detail really stood out and played a key role in the project's success.",
+    "received": "1 hour ago"
+  },
+  {
+    "title": "Message from MysteryGuest",
+    "content": "Your proactive approach in identifying potential issues before they became problems was a game changer. It helped us avoid unnecessary delays and kept the project on track. This foresight demonstrated your strong analytical skills and commitment to the project's success.",
+    "received": "2 minutes ago"
+  }
 ]
