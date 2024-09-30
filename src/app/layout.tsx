@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Anonymity",
-  description: "Get anonymous feedback with ease",
+  title: "Secret Feedback",
+  description: "Share secret feedback with ease",
 };
 
 export default function RootLayout({
