@@ -12,7 +12,7 @@ const Navbar = () => {
     const user: User = session?.user as User; 
     const {setTheme, theme} = useTheme();
     return (
-        <div className="flex p-4 items-center justify-between border-b">
+        <div className="fixed top-0 w-full backdrop-blur-md bg-background/30 flex p-4 items-center justify-between border-b h-16">
             <div className="flex items-center gap-x-2">
                 <img src="./logo.png" className="h-8 w-8"></img>
                 <div className="text-xl font-semibold hidden md:block">
