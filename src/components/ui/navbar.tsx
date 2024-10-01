@@ -11,8 +11,8 @@ import { useState } from "react";
 
 const Navbar = () => {
     const {data: session} = useSession();
-    const user: User = session?.user as User; 
     const {setTheme, theme} = useTheme();
+    if(!theme)setTheme("dark");
     const [isDarkMode, setIsDarkMode] = useState(theme === "dark");
     return (
         <div className="fixed top-0 w-full backdrop-blur-md bg-background/30 flex p-4 items-center justify-between border-b h-16 z-10">
