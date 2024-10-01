@@ -19,12 +19,12 @@ import { X } from "lucide-react";
 
 interface MessageCardProps {
     message: Message,
-    onMessageDelete: (messageId: string) => void
+    fetchMessages: (refresh: boolean) => void
 }
 
 export const MessageCard = ({
     message,
-    onMessageDelete
+    fetchMessages
 } : MessageCardProps) => {
     const {toast} = useToast();
 
@@ -37,6 +37,7 @@ export const MessageCard = ({
                 title: "Deleted...",
                 description: "Message deleted successfully"
             })
+            fetchMessages(true);
         } catch (error) {
             const axiosError = error as AxiosError<ApiResponse>;
             toast({
@@ -50,11 +51,10 @@ export const MessageCard = ({
     return (
         <Card className="card-bordered relative">
           <CardHeader>
-            <CardTitle className="break-words">{message.content}</CardTitle>
             <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant="destructive" className="absolute top-2 right-2">
-                    <X className="h-4 w-4"/>
+                <Button className="absolute top-0 right-0" variant={"ghost"}>
+                    <X className="h-3 w-3"/>
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
@@ -72,7 +72,8 @@ export const MessageCard = ({
               </AlertDialogContent>
             </AlertDialog>
           </CardHeader>
-          <CardContent>
+          <CardContent className="text-sm">
+            {message.content}
           </CardContent>
           <CardFooter></CardFooter>
         </Card>

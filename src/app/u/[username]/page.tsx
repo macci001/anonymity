@@ -70,7 +70,7 @@ const MessagePage = () => {
                     <FormItem>
                         <FormLabel>Content</FormLabel>
                         <FormControl>
-                        <Textarea placeholder="Type the message which would like to send..." {...field} className="w-[70vw] h-[20vh]"/>  
+                        <Textarea placeholder="Type the message which would like to send..." {...field} className="w-[90vw] h-[20vh]"/>  
                         </FormControl>
                         <FormDescription>
                             Don&apos;t worry, with SecretFeedback your messages are secret.
@@ -83,9 +83,9 @@ const MessagePage = () => {
                 </form>
             </Form>
             <div className="flex flex-col items-center">
-                <div className="text-lg">Join <span className="font-bold">SecretFeeback</span> today</div>
-                <div className="text-muted-foreground text-sm">Feedback is truthful only when it is kept secret!!</div>
-                <Button className="text-xl p-8 mt-6">
+                <div className="text-sm md:text-lg">Join <span className="font-bold">SecretFeeback</span> today</div>
+                <div className="text-xs md:text-sm text-muted-foreground text-center">Feedback is truthful only when it is kept secret!!</div>
+                <Button className="text-sm md:text-lg p-2 md:p-4 mt-2 md:mt-4">
                     Create Account today
                 </Button>
             </div>

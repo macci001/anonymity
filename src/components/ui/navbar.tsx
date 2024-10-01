@@ -15,7 +15,7 @@ const Navbar = () => {
     const {setTheme, theme} = useTheme();
     const [isDarkMode, setIsDarkMode] = useState(theme === "dark");
     return (
-        <div className="fixed top-0 w-full backdrop-blur-md bg-background/30 flex p-4 items-center justify-between border-b h-16">
+        <div className="fixed top-0 w-full backdrop-blur-md bg-background/30 flex p-4 items-center justify-between border-b h-16 z-10">
             <Link href={"/"}>
                 <div className="flex items-center gap-x-2">
                     <img src="./logo.png" className="h-8 w-8"></img>

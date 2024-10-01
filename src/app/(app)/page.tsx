@@ -151,6 +151,18 @@ cool.";
                 Yes. You have an option to when to receive the message and when not to.
               </AccordionContent>
             </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>How does SecretFeedback work?</AccordionTrigger>
+              <AccordionContent>
+                Once your account is created, you will get a shareable link for getting feedback.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Is this an open-source initiative?</AccordionTrigger>
+              <AccordionContent>
+                Yes, indeed.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </div>

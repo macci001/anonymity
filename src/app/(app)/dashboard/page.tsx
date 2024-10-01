@@ -5,7 +5,7 @@ import { MessageCard } from "@/components/ui/message-card";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
 import { useWindow } from "@/hooks/use-window";
-import { Message, User } from "@/model/user";
+import { Message } from "@/model/user";
 import { acceptingMessageSchema } from "@/schemas/acceptingMessageSchema";
 import { ApiResponse } from "@/types/ApiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -110,18 +110,12 @@ const DashboardPage = () => {
         }
     }, [setIsLoading, setValue, toast])
 
-    const handleDeleteMessage = (messageId: string) => {
-        setMessages(messages.filter((message) => message._id !== messageId));
-    };
-
     useEffect(() => {
         if (!session || !session.user) return;
     
         fetchMessages();
         fetchIsAcceptingMessage();
     }, [session, setValue, toast, fetchIsAcceptingMessage, fetchMessages]);
-
-    
 
     return (<div className="my-8 lg:mx-auto p-6 rounded w-full max-w-6xl">
         <h1 className="text-4xl font-bold mb-4">{username}&apos;s Dashboard</h1>
@@ -171,7 +165,7 @@ const DashboardPage = () => {
                 <MessageCard
                   key={message.content + message.createdAt}
                   message={message}
-                  onMessageDelete={handleDeleteMessage}
+                  fetchMessages={fetchMessages}
                 />
               ))
             ) : (
