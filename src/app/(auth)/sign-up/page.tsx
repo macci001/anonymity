@@ -40,7 +40,7 @@ const SignUpPage = () => {
     try {
         setIsSubmitting(true);
         const response = await axios.post<ApiResponse>(`/api/sign-up`, {
-            username: data.username,
+            username: data.username.toLowerCase(),
             email: data.email,
             password: data.password
         })
@@ -72,7 +72,7 @@ const SignUpPage = () => {
       try {
         setUsernameChecking(true);
         setUsernameMessage('');
-        const response = await axios.get(`/api/check-username-unique?username=${username}`);
+        const response = await axios.get(`/api/check-username-unique?username=${username.toLowerCase()}`);
         setUsernameMessage(response.data.message);
       } catch (e) {
         setUsernameMessage('Error in getting the username');

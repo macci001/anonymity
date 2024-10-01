@@ -16,7 +16,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
@@ -59,36 +58,39 @@ const MessagePage = () => {
         }
     }
 
-    return (<div className="p-8 flex flex-col gap-y-28 items-center">
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <FormField
-                control={form.control}
-                name="content"
-                disabled={isSubmitting}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Content</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Type the message which would like to send..." {...field} className="w-[70vw] h-[20vh]"/>  
-                    </FormControl>
-                    <FormDescription>
-                        Don&apos;t worry, with SecretFeedback your messages are secret.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" disabled={isSubmitting}>Submit</Button>
-            </form>
-        </Form>
-        <div className="flex flex-col items-center">
-            <div className="text-lg font-bold">Join Anonimity today</div>
-            <div className="text-muted-foreground">Feedback is truthful only when it is kept secret!!</div>
-            <Button className="text-2xl p-8 mt-6">
-                Create Account
-            </Button>
+    return (<div className="flex flex-col gap-y-16">
+        <div className="p-8 flex flex-col gap-y-28 items-center">
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <FormField
+                    control={form.control}
+                    name="content"
+                    disabled={isSubmitting}
+                    render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Content</FormLabel>
+                        <FormControl>
+                        <Textarea placeholder="Type the message which would like to send..." {...field} className="w-[70vw] h-[20vh]"/>  
+                        </FormControl>
+                        <FormDescription>
+                            Don&apos;t worry, with SecretFeedback your messages are secret.
+                        </FormDescription>
+                        <FormMessage />
+                    </FormItem>
+                    )}
+                />
+                <Button type="submit" disabled={isSubmitting}>Submit</Button>
+                </form>
+            </Form>
+            <div className="flex flex-col items-center">
+                <div className="text-lg">Join <span className="font-bold">SecretFeeback</span> today</div>
+                <div className="text-muted-foreground text-sm">Feedback is truthful only when it is kept secret!!</div>
+                <Button className="text-xl p-8 mt-6">
+                    Create Account today
+                </Button>
+            </div>
         </div>
-    </div>)
+    </div>
+    )
 };
 export default MessagePage;

@@ -83,9 +83,8 @@ const DashboardPage = () => {
             const axiosError = e as AxiosError<ApiResponse>;
             setMessages([]);
             toast({
-                title: "Error in getting messages",
-                description: axiosError.response?.data.message ?? "Something went wrong",
-                variant: "destructive"
+                title: "No Messages found.",
+                description: axiosError.response?.data.message ?? "Something went wrong"
             })
         } finally {
             setIsLoading(false);

@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -31,7 +31,7 @@ cool.";
           <div className="text-4xl md:text-6xl my-2 font-medium flex">Explore the power of the secret feedback</div>
         </div>
         <div className="my-4">
-          <div className="my-2 text-sm">Send anonymous feedback to your friend, colleague, favourite youtuber...</div>
+          <div className="my-2 text-sm">Send feedback secretly to your friend, colleague, favourite youtuber...</div>
           <Button className="my-2">
             <Link href={"/sign-up"} className="flex items-center">
             Join the Tribe for free <LogIn className="ml-2 w-4 h-4"/> 
@@ -67,14 +67,15 @@ cool.";
             <CarouselItem key={index}>
               <div>
                 <Card className="p-4 w-full h-full relative">
-                <CardContent>
-                  <span className="text-neutral font-medium break-words">
-                    {message.content}
-                  </span>
-                </CardContent>
-                <CardFooter className="text-xs absolute bottom-0 right-0 text-muted-foreground">
-                  {message.received}
-                </CardFooter>
+                  <CardHeader className="text-xs text-muted-foreground">A Message from {message.name}.</CardHeader>
+                  <CardContent>
+                    <span className="text-neutral font-medium break-words">
+                      {message.content}
+                    </span>
+                  </CardContent>
+                  <CardFooter className="text-xs absolute bottom-0 right-0 text-muted-foreground">
+                    {message.received}
+                  </CardFooter>
                 </Card>
               </div>
             </CarouselItem>
