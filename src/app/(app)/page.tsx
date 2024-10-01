@@ -1,12 +1,18 @@
 "use client"
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
 import Autoplay from 'embla-carousel-autoplay';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 import messages from "@/messages.json";
 import { Button } from "@/components/ui/button";
@@ -125,6 +131,29 @@ cool.";
           </div>
         </div>
       </div>
+
+      <div className="w-full md:w-[80vw] my-4 flex flex-col items-center w-full gap-y-4">
+        <div className="text-lg">
+          FAQs
+        </div>
+        <div className="w-full">
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Is it free to use?</AccordionTrigger>
+              <AccordionContent>
+                Yes. SecretFeedback is completely free to use.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Can I stop to receive the messages?</AccordionTrigger>
+              <AccordionContent>
+                Yes. You have an option to when to receive the message and when not to.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </div>
+
 
       <div className="mt-8 w-full flex justify-start text-xs items-center text-muted-foreground/80">
           <div className="flex items-center">made with <HeartIcon className="w-3 h-3 mx-1"/> by </div>
