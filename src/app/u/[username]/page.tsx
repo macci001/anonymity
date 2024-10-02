@@ -21,6 +21,7 @@ import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
 import { useToast } from "@/components/ui/use-toast";
 import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
 
 const MessagePage = () => {
     const {username} = useParams();
@@ -54,6 +55,7 @@ const MessagePage = () => {
                 variant: "destructive"
             })
         } finally {
+            form.setValue("content", "");
             setIsSubmitting(false);
         }
     }
@@ -86,7 +88,9 @@ const MessagePage = () => {
                 <div className="text-sm md:text-lg">Join <span className="font-bold">SecretFeeback</span> today</div>
                 <div className="text-xs md:text-sm text-muted-foreground text-center">Feedback is truthful only when it is kept secret!!</div>
                 <Button className="text-sm md:text-lg p-2 md:p-4 mt-2 md:mt-4">
-                    Create Account today
+                    <Link href="/sign-in">
+                        Create Account today
+                    </Link>
                 </Button>
             </div>
         </div>

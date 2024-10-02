@@ -157,7 +157,7 @@ cool.";
                 Once your account is created, you will get a shareable link for getting feedback.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-3">
+            <AccordionItem value="item-4">
               <AccordionTrigger>Is this an open-source initiative?</AccordionTrigger>
               <AccordionContent>
                 Yes, indeed.

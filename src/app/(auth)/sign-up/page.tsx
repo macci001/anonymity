@@ -49,7 +49,7 @@ const SignUpPage = () => {
             title: "Success",
             description: response.data.message
         })
-        router.replace(`/verify/${username}`);
+        router.replace(`/verify/${username.toLowerCase()}`);
     } catch(e) {
       const axiosError = e as AxiosError<ApiResponse>;
       console.log(axiosError.response?.data);
