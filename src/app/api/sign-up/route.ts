@@ -41,6 +41,7 @@ export async function POST(req: Request) {
                 const hashedpassword = await bcrypt.hash(password, 10);
                 existingUserByEmail.password = hashedpassword;
                 existingUserByEmail.verifyCode = verifyCode;
+                existingUserByEmail.username = username;
                 const expirydate = new Date();
                 expirydate.setHours(expirydate.getHours() + 1);
                 existingUserByEmail.verifyCodeExpiry = expirydate;
