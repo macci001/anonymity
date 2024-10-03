@@ -55,6 +55,9 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         async signIn({user}): Promise<any> {
+          if(!user.email) {
+            return false;
+          }
           await dbConnect();
           const userFromDb = await UserModel.findOne({email: user.email});
           if(userFromDb) {
@@ -75,12 +78,19 @@ export const authOptions: NextAuthOptions = {
           return UserModel.findOne({username});
         },
         async jwt({ token, user }) {
-          if (user) {
-            token._id = user._id?.toString() ?? user.id;
-            token.isVerified = user.isVerified ?? true;
-            token.isAcceptingMessages = user.isAcceptingMessages ?? true;
-            token.username = user.username ?? user.name?.replaceAll(" ", "").toLowerCase() + user.id.toString();
+          if(!user){
+            return token;
           }
+          await dbConnect();
+          const userFromDb = await UserModel.findOne({email: user.email});
+          if(!userFromDb){
+            return token;
+          }
+          
+          token._id = userFromDb._id?.toString();
+          token.isVerified = userFromDb.isVerified;
+          token.isAcceptingMessages = userFromDb.isAcceptingMessages;
+          token.username = userFromDb.username;
           return token;
         },
         async session({ session, token }) {
