@@ -168,9 +168,15 @@ cool.";
       </div>
 
 
-      <div className="mt-8 w-full flex justify-start text-xs items-center text-muted-foreground/80">
-          <div className="flex items-center">made with <HeartIcon className="w-3 h-3 mx-1"/> by </div>
-          <Link href={"https://www.maharshialpesh.com"} className="ml-1">maharshialpesh</Link>
+      <div className="mt-8 w-full flex gap-x-2 justify-start text-xs items-center text-muted-foreground/80">
+          <div className="flex">
+            <div className="flex items-center"><HeartIcon className="w-3 h-3 mx-1"/> by </div>
+            <Link href={"https://www.maharshialpesh.com"} className="ml-1">maharshialpesh</Link>
+          </div>
+          <div className="w-[2px] h-[2px] bg-foreground/40"></div>
+          <div>
+            <Link href={"/privacy"}>Privacy Policy</Link>
+          </div>
       </div>
     </main>
   );
