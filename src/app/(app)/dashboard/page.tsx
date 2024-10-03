@@ -24,8 +24,7 @@ const DashboardPage = () => {
     const [messages, setMessages] = useState<Message[]>([]);
 
     const {data: session} = useSession();
-    const username = session?.user.username;  
-
+    const username = session?.user.username; 
     const window = useWindow();
 
     const baseUrl = `${window?.location.protocol}//${window?.location.hostname}`;

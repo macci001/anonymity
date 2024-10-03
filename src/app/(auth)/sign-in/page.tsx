@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { signInSchema } from "@/schemas/signInSchema";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { Github } from "lucide-react";
 
 const SignInPage = () => {
   const {toast} = useToast();
@@ -42,7 +43,6 @@ const SignInPage = () => {
       })
       return;
     }
-    console.log(response);
     if(response?.url){
       router.push("/dashboard");
     }
@@ -58,7 +58,7 @@ const SignInPage = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="w-full max-w-md p-8 space-y-8 rounded-lg shadow-md shadow-foreground/10 border border-2-foreground">
+      <div className="w-full max-w-md p-8 space-y-4 rounded-lg shadow-md shadow-foreground/10 border border-2-foreground">
         <div className="text-center">
           <span className="text-xl tracking-tight mb-6">
             Welcome back to <span className="font-bold">SecretFeedback</span>
@@ -68,7 +68,7 @@ const SignInPage = () => {
           </div>
         </div>
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
               <FormField
                 control={form.control}
                 name="identifier"
@@ -97,9 +97,16 @@ const SignInPage = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isSubmitting}>Submit</Button>
+              <Button type="submit" disabled={isSubmitting} className="w-full">Submit</Button>
             </form>
         </Form>
+        <Button className="w-full" onClick={async () => {
+          await signIn("github", {redirect: false});
+        }}>
+          <div className="flex items-center">
+            Continue with Github <Github className="w-4 h-4 ml-2"/>
+          </div>
+        </Button>
         <div className="text-sm text-muted-foreground">
           Do not have an account <Link href="/sign-up" className="underline text-blue-700">
             sign-up

@@ -17,7 +17,7 @@ async function dbConnect() {
         if(isConnected) {
             connection.isConnected = isConnected
         }
-        console.log("database is connected.")
+        console.log("database is connected.");
     } catch(error) {
         console.log("Database connection failed", error);
         process.exit(1);

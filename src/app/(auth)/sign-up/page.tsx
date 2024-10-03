@@ -12,9 +12,10 @@ import { useRouter } from "next/navigation";
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Github, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const SignUpPage = () => {
   const [username, setUsername] = useState('');
@@ -44,7 +45,6 @@ const SignUpPage = () => {
             email: data.email,
             password: data.password
         })
-        console.log(response.data.message);
         toast({
             title: "Success",
             description: response.data.message
@@ -52,7 +52,6 @@ const SignUpPage = () => {
         router.replace(`/verify/${username.toLowerCase()}`);
     } catch(e) {
       const axiosError = e as AxiosError<ApiResponse>;
-      console.log(axiosError.response?.data);
         toast({
             title: "Signup failed",
             description: axiosError.response?.data.message ?? "Some error occured in sign-up",
@@ -93,7 +92,7 @@ const SignUpPage = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="w-full max-w-md p-8 space-y-8 rounded-lg shadow-md shadow-foreground/10 border border-2-foreground">
+      <div className="w-full max-w-md p-8 space-y-4 rounded-lg shadow-md shadow-foreground/10 border border-2-foreground">
         <div className="text-center">
           <span className="text-xl tracking-tight mb-6">
             Join the <span className="font-bold">SecretFeedback</span> tribe!
@@ -156,14 +155,22 @@ const SignUpPage = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isSubmitting}>Submit</Button>
+              <Button type="submit" disabled={isSubmitting} className="w-full">Submit</Button>
             </form>
         </Form>
+        <Button className="w-full" onClick={async () => {
+          await signIn("github", {redirect: false});
+        }}>
+          <div className="flex items-center">
+            Continue with Github <Github className="w-4 h-4 ml-2"/>
+          </div>
+        </Button>
         <div className="text-sm text-muted-foreground">
           Already have an account <Link href="/sign-in" className="underline text-blue-700">
             sign-in
           </Link>
         </div>
+
       </div>
     </div>
   )

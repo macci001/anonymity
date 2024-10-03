@@ -7,9 +7,9 @@ import { authOptions } from "../auth/[...nextauth]/options";
 export async function POST(req: Request) {
     await dbConnect();
     const session = await getServerSession(authOptions);
-    const userId = session?.user?._id;
+    const username = session?.user?.username;
 
-    if(!session || !userId) {
+    if(!session || !username) {
         return NextResponse.json({
             success: false,
             message: "Not authenticated"
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     const {acceptMessage} = await req.json();
     
     try {
-        const updatedUser = await UserModel.findByIdAndUpdate(userId, {
+        const updatedUser = await UserModel.findOneAndUpdate({username}, {
             isAcceptingMessages: acceptMessage
         }, {
             new: true
@@ -52,8 +52,8 @@ export async function POST(req: Request) {
 export async function GET() {
     await dbConnect();
     const session = await getServerSession(authOptions);
-    const userId = session?.user?._id;
-    if(!session || !userId) {
+    const username = session?.user?.username;
+    if(!session || !username) {
         return NextResponse.json({
             message: "Not Authenticated",
             success: false
@@ -63,7 +63,7 @@ export async function GET() {
     }
 
     try {
-        const user = await UserModel.findById(userId);
+        const user = await UserModel.findOne({username});
         if(!user) {
             return NextResponse.json({
                 success: false,

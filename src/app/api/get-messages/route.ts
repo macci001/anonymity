@@ -8,8 +8,8 @@ import UserModel from "@/model/user";
 export async function GET() {
     await dbConnect();
     const session = await getServerSession(authOptions);
-    const _userId = session?.user?._id;
-    if(!session || !_userId) {
+    const username = session?.user?.username;
+    if(!session || !username) {
         return NextResponse.json({
             success: false,
             message: "Not authenticated."
@@ -18,10 +18,9 @@ export async function GET() {
         })
     }
     
-    const userId = new mongoose.Types.ObjectId(_userId);
     try {
         const user = await UserModel.aggregate([
-            { $match: { _id: userId } },
+            { $match: { username: username} },
             { $unwind: '$messages' },
             { $sort: { 'messages.createdAt': -1 } },
             { $group: { _id: '$_id', messages: { $push: '$messages' } } },

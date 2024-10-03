@@ -19,12 +19,13 @@ const MessageSchema: Schema<Message> = new Schema({
 export interface User extends Document {
     username: string,
     password: string,
+    isPasswordSet: boolean,
     email: string,
     verifyCode: string,
     verifyCodeExpiry: Date,
     isVerified: boolean,
     isAcceptingMessages: boolean,
-    messages: Message[]
+    messages: Message[],
 }
 
 const UserSchema : Schema<User> = new Schema({
@@ -40,12 +41,14 @@ const UserSchema : Schema<User> = new Schema({
         unique: true
     },
     password: {
-        type: String,
-        required: [true, "password is required"]
+        type: String
+    },
+    isPasswordSet: {
+        type: Boolean,
+        default: true,
     },
     verifyCode: {
         type: String,
-        required: [true, "verifyCode is required"]
     },
     verifyCodeExpiry: {
         type: Date
