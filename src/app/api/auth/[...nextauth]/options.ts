@@ -3,8 +3,8 @@ import UserModel from "@/model/user";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
-import { v4 as uuidv4 } from 'uuid';
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -47,8 +47,11 @@ export const authOptions: NextAuthOptions = {
         GithubProvider({
           clientId: process.env.GITHUB_AUTH_CLIENT_ID!,
           clientSecret: process.env.GITHUB_AUTH_CLIENT_SECRET!,
-        },
-      )
+        }),
+        GoogleProvider({
+          clientId: process.env.GOOGLE_AUTH_CLIENT_ID!,
+          clientSecret: process.env.GOOGLE_AUTH_CLIENT_SECRET!,
+        }),
     ],
     callbacks: {
         async signIn({user}): Promise<any> {

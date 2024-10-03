@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Github, Loader2 } from "lucide-react";
+import { Github, Loader2, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
@@ -163,6 +163,13 @@ const SignUpPage = () => {
         }}>
           <div className="flex items-center">
             Continue with Github <Github className="w-4 h-4 ml-2"/>
+          </div>
+        </Button>
+        <Button className="w-full" onClick={async () => {
+          await signIn("google", {redirect: false});
+        }}>
+          <div className="flex items-center">
+            Continue with Google <Mail className="w-4 h-4 ml-2"/>
           </div>
         </Button>
         <div className="text-sm text-muted-foreground">

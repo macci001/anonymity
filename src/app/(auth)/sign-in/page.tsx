@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import { signInSchema } from "@/schemas/signInSchema";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 
 const SignInPage = () => {
   const {toast} = useToast();
@@ -105,6 +105,13 @@ const SignInPage = () => {
         }}>
           <div className="flex items-center">
             Continue with Github <Github className="w-4 h-4 ml-2"/>
+          </div>
+        </Button>
+        <Button className="w-full" onClick={async () => {
+          await signIn("google");
+        }}>
+          <div className="flex items-center">
+            Continue with Google <Mail className="w-4 h-4 ml-2"/>
           </div>
         </Button>
         <div className="text-sm text-muted-foreground">
