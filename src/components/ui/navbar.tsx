@@ -1,19 +1,21 @@
 "use client"
 
-import { User } from "@/model/user";
-import { LogIn, LogOut, MoonIcon, SunIcon } from "lucide-react";
+import { LogIn, LogOut } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { Button } from "./button";
 import { useTheme } from "next-themes";
 import { Switch } from "./switch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
     const {data: session} = useSession();
     const {setTheme, theme} = useTheme();
-    if(!theme)setTheme("dark");
-    const [isDarkMode, setIsDarkMode] = useState(theme === "dark");
+    
+    useEffect(() => {
+        setTheme("dark");
+    }, []);
+
+    const [isDarkMode, setIsDarkMode] = useState(true);
     return (
         <div className="fixed top-0 w-full backdrop-blur-md bg-background/30 flex p-4 items-center justify-between border-b h-16 z-10">
             <Link href={"/"}>
