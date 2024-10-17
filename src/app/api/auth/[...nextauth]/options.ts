@@ -27,12 +27,6 @@ export const authOptions: NextAuthOptions = {
                     if(!user) {
                         throw new Error("Given username/email does not exist.");
                     }
-                    if(!user.isPasswordSet) {
-                      throw new Error("Incorrect Password")
-                    }
-                    if(!user.isVerified) {
-                        throw new Error("User is not verified, please verify");
-                    }
                     const isPasswordcorrect = await bcrypt.compare(credentials.password, user.password);
                     if(!isPasswordcorrect) {
                         throw new Error("Password is incorrect");
